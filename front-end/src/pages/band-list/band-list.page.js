@@ -62,7 +62,7 @@ class BandListPage extends React.Component {
                     <Link to={"/band-detail/" + band.id} key={band.id}>
                         <div className="band-card">
                             <div className="band-card__img">
-                                <img src={band.imageUrl ?? ""}/>
+                                <img src={band.urlimg ?? ""}/>
                             </div>
                             <div className="band-card__text">
                                 <h4>{band.name}</h4>

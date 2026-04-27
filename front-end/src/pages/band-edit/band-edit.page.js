@@ -21,7 +21,8 @@ class BandEditPage extends React.Component {
         this.state = {
             id: null,
             name : '',
-            description : ''
+            description : '',
+            urlimg: ''
         }
 
     }
@@ -52,7 +53,8 @@ class BandEditPage extends React.Component {
         // Reunindo dados
         let data = {
             name : this.state.name,
-            description : this.state.description
+            description : this.state.description,
+            urlimg: this.state.urlimg ?? ""
         }
 
         // Realizando verificações
@@ -116,6 +118,7 @@ class BandEditPage extends React.Component {
                             onChange={e => this.setState({ name: e.target.value })} />
                         {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
                     </div>
+
                     <div className="form-group">
                         <label htmlFor="content">Descrição</label>
                         <textarea
@@ -126,6 +129,17 @@ class BandEditPage extends React.Component {
                             rows={4}
                             style={{resize: 'none'}}
                             onChange={e => this.setState({ description: e.target.value })} />
+                        {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="batata">Url da imagem</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="batata"
+                            value={this.state.urlimg}
+                            onChange={e => this.setState({ urlimg: e.target.value })} />
                         {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
                     </div>
 

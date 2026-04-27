@@ -75,7 +75,7 @@ class BandDetailPage extends React.Component {
 
                 <div className="row">
                     <div className="col-6">
-                        <img className="band-img" src={this.state?.band?.imageUrl} alt="image" />
+                        <img className="band-img" src={this.state?.band?.urlimg ?? ""} alt="image" />
                     </div>
                     <div className="col-6">
                         <div className="band-info">

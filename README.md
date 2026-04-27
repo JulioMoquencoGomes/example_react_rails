@@ -34,4 +34,4 @@ Imagem abaixo é a aplicação back-end sendo executada:
 Imagem abaixo é a aplicação front-end sendo executada:
 \
 \
-![Frontend](Images/frontend.png)
+![Frontend](Images/frontend2.png)
