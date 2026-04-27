@@ -18,18 +18,15 @@ class BandDetailPage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            // Atributo para armazenar os dados do band
             band: null
         }
     }
 
-    // Função que é executada assim que o componente carrega
     componentDidMount() {
         const bandId = this.props.params.id;
         this.loadBand(bandId);
     }
 
-    // Função que carrega os dados do band e salva no state
     async loadBand(bandId) {
         try {
             let res = await bandsService.getOne(bandId);
@@ -39,8 +36,7 @@ class BandDetailPage extends React.Component {
             alert("Não foi possível carregar a banda.")
         }
     }
-
-    // Função que exclui o band, chamada ao clicar no botão "Excluir"
+    
     async deleteBand(bandId) {
         if (!window.confirm("Deseja realmente excluir esta banda?")) return;
 

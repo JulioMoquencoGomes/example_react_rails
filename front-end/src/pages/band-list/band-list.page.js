@@ -17,17 +17,14 @@ class BandListPage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            // Atributo para armazenar o array de posts vindos da API.
             bands: [],
         }
     }
 
-    // Função que é executada assim que o componente carrega.
     componentDidMount() {
         this.loadPosts()
     }
 
-    // Função responsável por chamar o serviço e carregar os posts.
     async loadPosts() {
         try {
             let res = await bandsService.list();
@@ -56,13 +53,11 @@ class BandListPage extends React.Component {
                     </div>
                 </div>
 
-                {/* Percorrendo o array de posts do state e renderizando cada um
-                dentro de um link que leva para a página de detalhes do post específico */}
                 {this.state.bands.map(band => (
                     <Link to={"/band-detail/" + band.id} key={band.id}>
                         <div className="band-card">
                             <div className="band-card__img">
-                                <img src={band.urlimg ?? ""}/>
+                                <img src={band.urlimg ?? ""} />
                             </div>
                             <div className="band-card__text">
                                 <h4>{band.name}</h4>

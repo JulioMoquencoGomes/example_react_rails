@@ -1,17 +1,13 @@
 import axios from 'axios';
 
-// Armazenando o endereço da API
 const apiUrl = "http://localhost:3000";
 
 const authService = {
-
-    // Função que se comunica com o back-end para efetuar o login
     async sendLogin(data){
         let endpoint = apiUrl + "/auth";
         return axios.post(endpoint, data)
     },
 
-    // Função que salva os dados do usuário no localstorage
     setLoggedUser(userData){
         try {
             let parsedData = JSON.stringify(userData)
@@ -21,7 +17,6 @@ const authService = {
         }
     },
 
-    // Função que recupera os dados do usuário do localstorage
     getLoggedUser(){
         try {
             let userData = localStorage.getItem("user")
@@ -33,8 +28,7 @@ const authService = {
             return null;
         }
     },
-
-    // Função que limpa o localstorage, removendo os dados do usuário
+    
     clearLoggedUser(){
         localStorage.clear()
     }

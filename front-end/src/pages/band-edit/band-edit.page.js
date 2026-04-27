@@ -17,7 +17,6 @@ class BandEditPage extends React.Component {
     constructor(props){
         super(props)
 
-        // State iniciado com atributos do band vazios
         this.state = {
             id: null,
             name : '',
@@ -27,7 +26,6 @@ class BandEditPage extends React.Component {
 
     }
 
-    // Função executada assim que o componente carrega
     componentDidMount(){
         const bandId = this.props.params.id ?? null;
         if(bandId) {
@@ -35,7 +33,6 @@ class BandEditPage extends React.Component {
         }
     }
 
-    // Função que recupera os dados do band caso seja uma edição
     async loadBand(bandId){
         try {
             let res = await bandsService.getOne(bandId);
@@ -47,17 +44,14 @@ class BandEditPage extends React.Component {
         }
     }
 
-    // Função responsável por salvar o band
     async sendBand(){
         
-        // Reunindo dados
         let data = {
             name : this.state.name,
             description : this.state.description,
             urlimg: this.state.urlimg ?? ""
         }
 
-        // Realizando verificações
         if(!data.name || data.name === ''){
             alert("Nome é obrigatório!")
             return;
@@ -68,12 +62,10 @@ class BandEditPage extends React.Component {
         }
 
         try {
-            // Caso seja uma edição, chamar o "edit" do serviço
             if(this.state.id){
                 await bandsService.edit(data, this.state.id);
                 alert("Banda editada com sucesso!");
             }
-            // Caso seja uma adição, chamar o "create" do serviço
             else{
                 await bandsService.create(data);
                 alert("Banda criada com sucesso!")
@@ -116,7 +108,6 @@ class BandEditPage extends React.Component {
                             id="title"
                             value={this.state.name}
                             onChange={e => this.setState({ name: e.target.value })} />
-                        {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
                     </div>
 
                     <div className="form-group">
@@ -129,7 +120,6 @@ class BandEditPage extends React.Component {
                             rows={4}
                             style={{resize: 'none'}}
                             onChange={e => this.setState({ description: e.target.value })} />
-                        {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
                     </div>
 
                     <div className="form-group">
@@ -140,7 +130,6 @@ class BandEditPage extends React.Component {
                             id="batata"
                             value={this.state.urlimg}
                             onChange={e => this.setState({ urlimg: e.target.value })} />
-                        {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
                     </div>
 
                 </form>
